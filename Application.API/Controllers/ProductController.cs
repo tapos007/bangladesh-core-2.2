@@ -12,35 +12,59 @@ namespace Application.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        // GET: api/Product
+        /// <summary>
+        /// Get all product.
+        /// </summary>
         [HttpGet]
         public IActionResult Get()
         {
             return Ok(ProductHelper.Get());
         }
 
-        // GET: api/Product/5
+        /// <summary>
+        /// Get a product.
+        /// </summary>
+        /// <param name="id"></param> 
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {
             return Ok(ProductHelper.GetAProduct(id));
         }
 
-        // POST: api/Product
+        /// <summary>
+        /// Creates a TodoItem.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /Product
+        ///     {
+        ///        "name": "Item1",
+        ///        "description": "good book:
+        ///     }
+        ///
+        /// </remarks>
         [HttpPost]
         public IActionResult Post([FromBody] Product product)
         {
             return Ok(ProductHelper.AddProduct(product));
         }
 
-        // PUT: api/Product/5
+        /// <summary>
+        /// Update a specific TodoItem.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="product"></param> 
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Product product)
         {
             return Ok(ProductHelper.Update(id,product));
         }
 
-        // DELETE: api/ApiWithActions/5
+        /// <summary>
+        /// Deletes a specific Product.
+        /// </summary>
+        /// <param name="id"></param> 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
