@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Application.API.Models;
-using Microsoft.AspNetCore.Http;
+﻿using Application.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Application.API.Controllers
+namespace Application.API.Controllers.v1
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
